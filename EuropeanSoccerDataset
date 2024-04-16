@@ -1,1 +1,31 @@
-select * from Country
+-- Question 1: What was the ranking of the teams in the England Premier League in the '2015/2016' season? 
+--For each team, display the number of matches won, lost and draws, the total points accumulated,
+--as well as the number of goals scored and received
+select * from League l
+join Match m on l.id = m.league_id
+join Team t on t.team_api_id = m.home_team_api_id
+
+where l.id = 1729 and m.season = '2015/2016'
+
+select id, t.team_long_name, league_id, home_team_goal, away_team_goal
+from Match m
+join League l on l.id = m.league_id
+join Team t on t.team_api_id = m.home_team_api_id
+where league_id = 1729 and m.season = '2015/2016' 
+
+
+
+
+
+
+
+
+
+
+--Question 2: Who are the top ten players that scored most goals in the '2015/2016' season of the England Premier League?
+
+--Question 3: What is the proportion of goals scored by player position (forward, midfielder, defender, goalkeeper)?
+
+--Question 4: Is there a correlation between the number of corners a team has and the number of goals the team scores?
+
+--Question 5: Is there a correlation between the number of cards (yellow & red) received by a team in a match and the outcome of the match?
